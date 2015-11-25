@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ng-Shopping</title>
+    <link rel="stylesheet" href="normalize.css">
+    <link rel='stylesheet' href='styles.css'>
+    <link rel='stylesheet' href='bower_components/font-awesome/css/font-awesome.css'>
+  </head>
+  <body ng-app="products">
+    <header >
+      <nav>
+        <ul>
+          <li><a href="#/">Home</a></li>
+          <li><a href="#/products">List Products</a></li>
+          <li><a href="#/adminProducts">Admin products list</a></li>
+
+        </ul>
+      </nav>
+    </header>
+    <div>
+      <input type="text" ng-model="demo">{{demo}}
+
+      <ng-view></ng-view>
+
+    </div>
+
+    <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+    <script type="text/javascript" src="bower_components/angular-route/angular-route.js"></script>
+    <script type="text/javascript" src="bower_components/underscore/underscore.js"></script>
+    <!-- app files -->
+    <script src="app.module.js" charset="utf-8"></script>
+    <script src="app.controllers.js" charset="utf-8"></script>
+    <script src="app.services.js" charset="utf-8"></script>
+  </body>
+</html>

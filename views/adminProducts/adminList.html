@@ -1,0 +1,12 @@
+<h1>You are in the admin list products page</h1>
+<section ng-repeat="Product in buyProducts">
+  <h3>{{product.name}}</h3>
+  <img ng-src="{{product.image}}" alt="" />
+  <h4> {{product.price}}</h4>
+  <p>
+    {{product.description | limitTo: 255}}
+  </p>
+  <a href="#/product/{{product._id}}">show more</a>
+  <button type="button" ng-click="deleteProduct(product._id)" name="button">delete product</button>
+  <button type="button" ng-click="editProduct(singleProduct)" name="button">Edit Product</button>
+</section>
