@@ -1,7 +1,7 @@
 (function () {
   "use strict";
   angular
-    .module('products')
+    .module('shopping')
     .factory('ProductsService', function ($http) {
       var url = 'http://tiny-tiny.herokuapp.com/collections/lindsayNgProducts';
 

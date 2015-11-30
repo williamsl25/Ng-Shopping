@@ -3,7 +3,8 @@
 
   angular
     .module('products', [
-      'ngRoute'
+      'ngRoute',
+      'cart'
     ])
 .config(function ($routeProvider) {
   $routeProvider

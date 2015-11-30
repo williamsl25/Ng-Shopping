@@ -2,7 +2,7 @@
   "use strict";
 
   angular
-    .module('products')
+    .module('shopping')
     .controller('MainController', function($scope){
 
   });
