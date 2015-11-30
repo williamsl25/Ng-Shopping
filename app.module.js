@@ -1,40 +1,57 @@
-(function () {
+(function (){
   "use strict";
+
   angular
     .module('products', [
-      'ngRoute',
-      'underscore'
-    ])
-    .config(function ($routeProvider) {
-      $routeProvider
-        .when('/', {
-            template: '<h1>Welcome to Paddleboard Products</h1><a href="#/products">go to products</a>',
-            controller: 'MainController'
-          })
-        .when('/products', {
-            templateUrl: 'views/products/list.html',
-            controller: 'ProductsController'
-          })
-        .when('/products/:productId', {
-            templateUrl: 'views/products/detail.html',
-            controller: 'ProductsController'
-          })
-        .when('/products/:productId/edit', {
-            templateUrl: 'views/products/edit.html',
-            controller: 'ProductsController'
-        })
-        .when('/adminProducts', {
+    'ngRoute',
+    'underscore'
+  ])
+  .config(function ($routeProvider){
+    $routeProvider
+    //root route
+      .when('/', {
+        template: '<h1>Home Page</h1>',
+        controller: 'MainController'
+      })
+      //all products list
+      .when('/products', {
+        templateUrl: 'views/products/list.html',
+        controller: 'ProductsController'
+      })
+      //indiv product page
+      .when('/products/:productId', {
+        templateUrl: 'views/products/detail.html',
+        controller: 'ProductsController'
+      })
+      //edit race
+      .when('/products/:productId/edit', {
+        templateUrl: 'views/products/edit.html',
+        controller: 'ProductsController'
+      })
+
+      //addproduct
+      .when('/addproduct', {
+        templateUrl: 'views/products/create.html',
+        controller: 'ProductsController'
+      })
+
+      //ADMIN
+          .when('/admin', {
             templateUrl: 'views/adminProducts/adminList.html',
-            controller: 'ProductsController'
+            controller: 'AdminController'
+
           })
-        .when('/adminProducts/:adminProductId', {
-            templateUrl: 'views/adminProducts/adminDetail.html',
-            controller: 'ProductsController'
-          })
-        .when('/addProduct', {
+
+          .when('/admin/addProduct', {
             templateUrl: 'views/adminProducts/create.html',
-            controller: 'ProductsController'
-        })
+            controller: 'AdminController'
+          })
+
+          .when('/404', {
+            templateUrl: 'views/404.html'
+          })
+          .otherwise({ redirectTo: '/404'});
+
       });
 
   angular

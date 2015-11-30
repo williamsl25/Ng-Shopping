@@ -1,56 +1,49 @@
-(function (){
-"use strict"
+(function () {
+  "use strict";
+
   angular
-  .module('products')
-  .controller('MainController', function($scope){
+    .module('products')
+    .controller('MainController', function($scope){
 
   })
-  .controller('ProductsController', function($scope, ProductsService, AdminService, $routeParams){
+    .controller('ProductsController', function ($scope, $routeParams, ProductService)
+    {
+      ProductService.getProducts().success(function (products) {
+        $scope.products = products;
+      });
 
-    AdminService.getProducts().success(function (products){
-      console.log(products);
-      $scope.buyProducts = products;
-    });
-
-    if($routeParams.productId) {
-        AdminService.getOneProduct($routeParams.productsId).success(function (singleproduct) {
+      if($routeParams.productId) {
+        ProductService.getSingleProduct($routeParams.productId).success(function (singleProduct) {
           console.log(singleProduct);
           $scope.singleProduct = singleProduct;
         });
       }
 
-    $scope.newProduct = function (newProduct) {
-        AdminService.createProduct(newadminProduct);
+      $scope.addProduct = function (product) {
+        ProductService.addProduct(product);
       };
 
-    $scope.editadminProduct = function (editedProduct) {
-        AdminService.updateProduct(editedProduct);
+      $scope.editProduct = function (editedProduct) {
+        ProductService.updateProduct(editedProduct);
+      };
+      $scope.deleteProduct = function (productId) {
+        ProductService.removeProduct(productId);
       };
 
-    $scope.deleteProduct = function (productId) {
-        AdminService.deleteProduct(productId);
-      };
+    })
 
-// ProductsController-----------------------
+    .controller('CartController', function ($scope, CartService) {
+      $scope.testmessage = "this is a string";
 
-  ProductsService.getProducts().success(function (products){
-    console.log(products);
-    $scope.buyProducts = products;
-  });
+        CartService.getItem().success(function (item) {
+          console.log(item);
+          $scope.CartItems = item;
+        });
 
-
-  if($routeParams.productId) {
-      ProductsService.getOneProduct($routeParams.productsId).success(function (singleProduct) {
-        console.log(singleProduct);
-        $scope.singleProduct = singleProduct;
-      });
-    }
-
-
-  $scope.editProduct = function (editedProduct) {
-      ProductsService.updateProduct(editedProduct);
-    };
-
+        $scope.removeItemfromCart = function(itemID){
+          console.log("removed from cart", itemID);
+          CartService.removeItemfromCart(itemID);
+        };
 
   });
 

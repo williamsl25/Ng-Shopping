@@ -1,8 +1,8 @@
 <h1>You are in the product list page</h1>
-<section ng-repeat="product in buyProducts">
+<section ng-repeat="product in product">
   <h3>{{product.name}}</h3>
   <img ng-src="{{product.image}}" alt="" />
-  <h4> {{product.price}}</h4>
+  <h4> {{product.price | currency}}</h4>
   <p>
     {{product.description | limitTo: 255}}
   </p>

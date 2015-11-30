@@ -1,1 +1,8 @@
 <h1>edit product page</h1>
+<section>
+  <input type="text" name="name" ng-model="singleProduct.name" placeholder="name" value="{{singleProduct.name}}">
+  <input type="text" name="image" ng-model="singleProduct.image" placeholder="image" value="{{singleProduct.image}}">
+  <input type="text" name="price" ng-model="singleProduct.price" placeholder="price" value="{{singleProduct.price | currency}}">
+  <input type="text" ng-model="singleProduct.description" name="description" placeholder="description" value="{{singleProduct.description}}">
+  <button type="button" ng-click="editProduct(singleProduct)" name="button">Edit Product</button>
+</section>

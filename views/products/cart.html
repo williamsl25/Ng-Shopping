@@ -1,0 +1,11 @@
+<h1>Shopping Cart</h1>
+
+<div ng-controller="CartController">
+<div ng-repeat="item in CartItems">
+  <h2>{{product.name}}</h2>
+  <img ng-src="{{product.image}}" alt="" />
+  <h6 class="price">price: {{product.price | currency}} </h6>
+
+  <button type="text" ng-click="removeItemfromCart(item._id)"  class="delete">Delete Item</button>
+</div>
+</div>
