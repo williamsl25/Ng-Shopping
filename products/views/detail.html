@@ -1,0 +1,15 @@
+<h1>You are in the product detail page</h1>
+
+<section>
+  <h3>{{singleProduct.name}}</h3>
+  <img ng-src="{{singleProduct.image}}" alt="" />
+  <h4> {{singleProduct.price | currency}}</h4>
+  <p>
+    {{singleProduct.description | limitTo: 255}}
+  </p>
+  <button type="button" ng-click="editProduct(singleProduct)" name="button">Edit Product</button>
+  <button type="button" ng-click="deleteProduct(product._id)" name="button">delete product</button>
+
+  <button ng-click="addToCart(item)" class="btn btn-success">Add to cart</button><br>
+  
+</section>

@@ -2,9 +2,11 @@
   "use strict";
 
   angular
-    .module('products', [
+    .module('shopping', [
     'ngRoute',
-    'underscore'
+    'underscore',
+    'products',
+    'cart'
   ])
   .config(function ($routeProvider){
     $routeProvider
@@ -13,46 +15,8 @@
         template: '<h1>Home Page</h1>',
         controller: 'MainController'
       })
-      //all products list
-      .when('/products', {
-        templateUrl: 'views/products/list.html',
-        controller: 'ProductsController'
-      })
-      //indiv product page
-      .when('/products/:productId', {
-        templateUrl: 'views/products/detail.html',
-        controller: 'ProductsController'
-      })
-      //edit race
-      .when('/products/:productId/edit', {
-        templateUrl: 'views/products/edit.html',
-        controller: 'ProductsController'
-      })
 
-      //addproduct
-      .when('/addproduct', {
-        templateUrl: 'views/products/create.html',
-        controller: 'ProductsController'
-      })
-
-      //ADMIN
-          .when('/admin', {
-            templateUrl: 'views/adminProducts/adminList.html',
-            controller: 'AdminController'
-
-          })
-
-          .when('/admin/addProduct', {
-            templateUrl: 'views/adminProducts/create.html',
-            controller: 'AdminController'
-          })
-
-          .when('/404', {
-            templateUrl: 'views/404.html'
-          })
-          .otherwise({ redirectTo: '/404'});
-
-      });
+    });
 
   angular
     .module('underscore', [])
