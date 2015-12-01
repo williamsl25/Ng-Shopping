@@ -4,7 +4,18 @@
   angular
     .module('products')
     .controller('ProductsController', function ($scope, $routeParams, ProductsService, CartService, $location){
+      //edit in the myproduct directive
+      $scope.editProd = function () {
+        console.log('edit me edit me!!');
+        ProductsService.getSingleProduct($routeParams.productId).success(function (singleProduct) {
+          console.log(singleProduct);
+          $scope.singleProduct = singleProduct;
+        });
+      };
 
+      $scope.deleteProd = function () {
+        console.log('delete me delete me!!');
+      };
       ProductsService.getProducts().success(function (product) {
         $scope.products = product;
       });
@@ -31,10 +42,14 @@
         });
       };
       $scope.deleteProduct = function (productId) {
-        ProductsService.removeProduct(productId).then(function() {
-            $location.path('/products');
-        });
+        ProductsService.removeProduct(productId);
       };
+
+      $scope.$on('product:deleted', function () {
+        ProductsService.getProducts().success(function (product) {
+          $scope.products = product;
+        });
+      })
 
 
     })

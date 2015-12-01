@@ -2,7 +2,7 @@
   "use strict";
   angular
     .module('products')
-    .factory('ProductsService', function ($http) {
+    .factory('ProductsService', function ($http, $rootScope) {
       var url = 'http://tiny-tiny.herokuapp.com/collections/lindsayNgProducts';
 
 
@@ -23,7 +23,9 @@
       };
 
     var removeProduct = function (productId) {
-        return $http.delete(url + '/' + productId);
+        $http.delete(url + '/' + productId).success(function (res) {
+          $rootScope.$broadcast('product:deleted');
+        })
       };
 
 

@@ -7,9 +7,12 @@
   <p>
     {{singleProduct.description | limitTo: 255}}
   </p>
-  <a href="#/products/{{singleProduct._id}}/edit"><button type="button" ng-click="editProduct(singleProduct)" name="button">Edit Product</button></a>
-  <button type="button" ng-click="deleteProduct(singleProduct._id)" name="button">delete product</button>
+  <div >
+    <a href="#/products/{{singleProduct._id}}/edit"><button>edit</button></a>
 
-  <button type="button" ng-click="addToCart(singleProduct)">add to cart</button>
+    <button type="button" ng-click="deleteProduct(singleProduct._id)" name="button">delete product</button>
+
+    <button type="button" ng-click="addToCart(singleProduct)">add to cart</button>
+  </div>
 
 </section>
