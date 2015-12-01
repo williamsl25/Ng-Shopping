@@ -26,7 +26,9 @@
 
       $scope.editProduct = function (editedProduct) {
         console.log(editedProduct);
-        ProductsService.updateProduct(editedProduct);
+        ProductsService.updateProduct(editedProduct).then(function() {
+            $location.path('/products');
+        });
       };
       $scope.deleteProduct = function (productId) {
         ProductsService.removeProduct(productId).then(function() {

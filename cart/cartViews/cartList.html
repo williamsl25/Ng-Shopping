@@ -1,10 +1,10 @@
 <h1>Shopping Cart</h1>
 <section>
-  <h2><b>Total:</b> {{getCartTotal() | currency}}</h2>
+  <h2><b>Total:</b> {{total | currency}}</h2>
 </section>
-<div ng-controller="CartController">
+<div>
   <section ng-repeat="item in CartItems">
-    <h3>{{item.name}}</h2>
+    <h3>{{item.name}}</h3>
     <img ng-src="{{item.image}}" alt="" />
     <h4 class="price">Price: {{item.price | currency}} </h4>
     <h4>Qty: {{item.quantity}}
@@ -13,10 +13,7 @@
       <button <i class="fa fa-minus cart" type="text" ng-click="minusQuantity(item)"></i></button>
     </h4>
 
-        <button type="text" ng-click="removeItemfromCart(item._id)"  class="delete">Delete Item</button>
-      </div>
-
-    </div>
+    <button type="text" ng-click="removeItemfromCart(item._id)"  class="delete">Delete Item</button>
 
   </section>
 </div>
