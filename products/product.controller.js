@@ -5,8 +5,8 @@
     .module('products')
     .controller('ProductsController', function ($scope, $routeParams, ProductsService, CartService, $location){
 
-      ProductsService.getProducts().success(function (products) {
-        $scope.products = products;
+      ProductsService.getProducts().success(function (product) {
+        $scope.products = product;
       });
 
       if($routeParams.productId) {
@@ -29,8 +29,11 @@
         ProductsService.updateProduct(editedProduct);
       };
       $scope.deleteProduct = function (productId) {
-        ProductsService.removeProduct(productId);
+        ProductsService.removeProduct(productId).then(function() {
+            $location.path('/products');
+        });
       };
+
 
     })
 }());

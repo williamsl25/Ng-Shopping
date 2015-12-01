@@ -10,7 +10,6 @@
           });
 
           $scope.removeItemfromCart = function(itemID){
-            console.log("removed from cart", itemID);
             CartService.removeItemfromCart(itemID).success(function() {
                 CartService.getItem().success(function(data) {
                   $scope.CartItems = data;
@@ -18,6 +17,22 @@
             });
           };
 
+
+          $scope.getCartTotal = function () {
+            return CartService.getCartTotal();
+          };
+
+
+          $scope.plusQuantity = function (passedItem) {
+            CartService.plusQuantity(passedItem);
+          };
+
+          $scope.minusQuantity = function (passedItem) {
+            CartService.minusQuantity(passedItem);
+          };
+
+
       });
+
 
 }());
