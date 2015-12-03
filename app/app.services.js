@@ -3,7 +3,6 @@
   angular
     .module('shopping')
     .factory('ProductsService', function ($http) {
-      // var url = 'http://tiny-tiny.herokuapp.com/collections/lindsayNgProducts';
 
 
     var addProduct = function (newProduct) {
