@@ -3,7 +3,9 @@
   angular
     .module('products')
     .factory('ProductsService', function ($http, $rootScope) {
-      
+      var url = 'http://tiny-tiny.herokuapp.com/collections/lindsayNgProducts';
+
+
     var addProduct = function (newProduct) {
         console.log(newProduct);
         $http.post(url, newProduct);
