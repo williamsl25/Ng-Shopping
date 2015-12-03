@@ -1,0 +1,24 @@
+{
+  "name": "angular_shopping",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "css": "node-sass -w app/css/styles.scss app/css/styles.css",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/williamsl25/Ng-Shopping.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/williamsl25/Ng-Shopping/issues"
+  },
+  "homepage": "https://github.com/williamsl25/Ng-Shopping#readme",
+  "dependencies": {
+    "express": "^4.13.3"
+  }
+}
