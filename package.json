@@ -4,6 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
+    "postinstall": "./node_modules/.bin/bower install",
     "test": "echo \"Error: no test specified\" && exit 1",
     "css": "node-sass -w app/css/styles.scss app/css/styles.css",
     "start": "node server.js"
